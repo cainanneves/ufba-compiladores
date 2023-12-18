@@ -1,0 +1,1 @@
+INTEIRO : q ; q ; q . VET INTEIRO : q 6 . FUNCAO q ( VET REAL : q ; VET INTEIRO : q ) : REAL VAR VET INTEIRO : q 4 . REAL : q ; q ; q . INTEIRO : q ; q ; q ; q ; q ; q . INICIO q ( ) . LEIA q [ q ( ) ] . q ( ) . FIM VAR REAL : q . INTEIRO : q . INICIO SE q [ ( q ( ) ) ] <= q / q ( ) ** q ( ) * q ( ) * q ( ) / q ( ) - - q ( ) INICIO FIM SENAO INICIO FIM q ( ) . LEIA q . FIM

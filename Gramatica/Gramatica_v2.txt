@@ -1,0 +1,94 @@
+S' -> S
+S -> DEC PROT FUNC VAR DEC INICIO COD FIM
+
+COD -> COD LINHA1
+COD -> LINHA1
+
+LINHA1 -> ATT
+LINHA1 -> DESVIO
+LINHA1 -> REP
+LINHA1 -> LEITURA
+LINHA1 -> ESCRITA
+LINHA1 -> CHAMADA
+LINHA1 -> RETORNO
+LINHA1 -> PARE .
+
+DEC -> DEC LINHA2
+DEC -> LINHA2
+LINHA2 -> TIPO : LISTA_ID .
+LINHA2 -> VET TIPO : id CONSTNUM .
+LISTA_ID -> LISTA_ID ; id
+LISTA_ID -> id
+
+ATT -> id <- ARIT .
+ATT -> id [ ARIT ] <- ARIT .
+
+ARIT -> pri
+pri -> pri + sec
+pri -> pri - sec
+pri -> sec
+sec -> sec * ter
+sec -> sec / ter
+sec -> sec % ter
+sec -> ter
+ter -> ter ** qua
+ter -> qua 
+qua -> ( ARIT )
+qua -> num
+num -> vari
+num -> CHAMADA
+
+REL -> ARIT OP ARIT
+OP -> <
+OP -> >
+OP -> <=
+OP -> >=
+OP -> =
+OP -> <>
+
+RELCOMP -> OR
+OR -> OR | AND
+OR -> AND
+AND -> AND & NEG
+AND -> NEG
+NEG -> ! NEG
+NEG -> PAR
+PAR -> ( OR )
+PAR -> REL
+
+DESVIO -> SE RELCOMP INICIO COD FIM
+DESVIO -> SE RELCOMP INICIO COD FIM SENAO RELCOMP INICIO COD FIM
+
+REP -> ENQUANTO RELCOMP INICIO COD FIM
+REP -> PARA id DE ARIT ATEH ARIT INICIO COD FIM
+
+LEITURA -> LEIA LISTA_IDS .
+LISTA_IDS -> LISTA_IDS ; vari
+LISTA_IDS -> vari
+
+ESCRITA -> ESCREVA LISTA_EL .
+LISTA_EL -> LISTA_EL ; ELEM
+LISTA_EL -> ELEM
+ELEM -> ARIT
+ELEM -> vari
+ELEM -> CONSTNUM
+ELEM -> STRING
+vari -> id
+vari -> id [ ARIT ]
+
+PROT -> PROT LINHA3
+PROT -> LINHA3 
+LINHA3 -> FUNCAO id ( LISTA_VARS ) : TIPO .
+LISTA_VARS -> LISTA_VARS ; vars
+LISTA_VARS -> vars
+vars -> TIPO : id
+vars -> VET TIPO : id
+
+FUNC -> FUNC LINHA4
+FUNC -> LINHA4
+LINHA4 -> FUNCAO id ( LISTA_VARS ) : TIPO VAR DEC INICIO COD FIM
+
+CHAMADA -> id ( LISTA_ID ) .
+
+RETORNO -> RECEBA ( ARIT ) .
+RETORNO -> RECEBA .

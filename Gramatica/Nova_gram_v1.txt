@@ -1,0 +1,106 @@
+S' -> S
+S -> dec VAR dec INICIO cod FIM
+
+dec -> line1 dec
+dec -> prot
+line1 -> tipo : lista_ids .
+line1 -> VET tipo : id numi .
+lista_ids -> lista_ids ; id
+lista_ids -> id
+
+num -> numr
+num -> numi
+
+prot -> line2 prot
+prot -> funcoes
+line2 -> FUNCAO id ( lista_vars ) : tipon .
+
+funcoes -> line3 funcoes
+line3 -> FUNCAO id ( lista_vars ) : tipon VAR dec INICIO cod FIM
+lista_vars -> lista_vars ; vars
+lista_vars -> vars
+vars -> tipo : id
+vars -> VET tipo : id
+
+tipon -> tipo
+tipon -> nulo
+
+cod -> cod line
+line -> atrib .
+line -> read .
+line -> write .
+line -> rec .
+line -> chama .
+line -> PARE .
+line -> desv
+line -> rep
+
+atrib -> id <- arit
+atrib -> id [ arit ] <- arit
+
+arit -> first
+first -> first + secon
+first -> first - secon
+first -> secon
+secon -> third * secon
+secon -> third / secon
+secon -> third % secon
+secon -> third
+third -> forth ** third
+third -> forth
+forth -> fift
+forth -> - fift
+fift -> ( arit )
+fift -> vaar
+fift -> chama
+fift -> num
+
+vaar -> id
+vaar -> id [ arit ]
+
+rela -> arit op arit
+op -> <
+op -> >
+op -> <=
+op -> >=
+op -> =
+op -> <>
+
+rcomp -> or
+or -> or | and
+or -> and
+and -> and & neg
+and -> neg
+neg -> ! neg
+neg -> prt
+prt -> ( or )
+prt -> rela
+
+desv -> SE rcomp INICIO cod FIM
+desv -> SE rcomp INICIO cod FIM SENAO rcomp INICIO cod FIM
+
+rep -> ENQUANTO rcomp INICIO cod FIM
+rep -> PARA id DE arit ATEH arit INICIO cod FIM
+
+read -> LEIA lista_leia
+lista_leia -> lista_leia ; li
+lista_leia -> li
+li -> vaar
+
+write -> ESCREVA lista_el
+lista_el -> elem ; lista_el
+lista_el -> elem
+elem -> arit
+elem -> str
+
+chama -> id ( arg )
+arg -> lista_el
+
+rec -> RECEBA ( arit )
+rec -> RECEBA
+
+funcoes -> ''
+arg -> ''
+rcomp -> ''
+cod -> ''
+lista_vars -> ''

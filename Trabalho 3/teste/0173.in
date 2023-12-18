@@ -1,0 +1,1 @@
+VET INTEIRO : m 1 . REAL : m . INTEIRO : m . FUNCAO m ( VET REAL : m ; VET REAL : m ; VET INTEIRO : r ; VET REAL : r ) : INTEIRO VAR INTEIRO : m . VET INTEIRO : r 5 . INICIO r ( ) . m ( ) . FIM VAR REAL : r . REAL : r ; m ; r . VET REAL : m 2 . INICIO LEIA r [ ( ( r ( ) ) ) ] . SE ! r * r >= r INICIO FIM m ( ) . m ( r ( ) ) . r ( ) . FIM
